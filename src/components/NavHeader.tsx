@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 interface NavHeaderProps extends HeaderProps {
     withBackButton?: boolean;
-    onPressBack: () => void;
+    onPressBack?: () => void;
 }
 
 export default class NavHeader extends Component<NavHeaderProps> {
