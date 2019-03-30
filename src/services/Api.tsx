@@ -1,11 +1,17 @@
 import config from '../config';
+import { IDefineResult } from '../interfaces/intefaces';
 
 let apiKey = config.api_key;
 let urlPrefix = config.api_url;
 
 export default {
+    /**
+     * Get word defination from server
+     * @param {Object} params
+     * @param {String} params.term Word that is going to search
+     */
     getDefine: async(params) => {
-        const defineResults = await req('GET', '/define', params);
+        const defineResults: IDefineResult = await req('GET', '/define', params);
         return defineResults;
     }
 }
@@ -25,7 +31,7 @@ async function req(method, url, params = {}, contentType = 'application/json') {
       ? JSON.stringify(params)
       : params;
       
-    const fetchOptions = {
+    const fetchOptions: RequestInit = {
       method,
       body,
       headers: {
@@ -33,7 +39,6 @@ async function req(method, url, params = {}, contentType = 'application/json') {
         'X-RapidAPI-Key': apiKey
       },
       mode: 'cors',
-      cache: 'default'
       };
       console.log('[' + method + ' Request] ' + url);
   
@@ -41,7 +46,7 @@ async function req(method, url, params = {}, contentType = 'application/json') {
       const response = await fetch(reqUrl, fetchOptions);
   
       if (response.status === 401) {
-        await logout();
+        // await logout();
         throw 'Unauthorized Error';
       }
   
