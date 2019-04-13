@@ -3,8 +3,10 @@ import { View, Text, FlatList } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
 import NavHeader from '../../components/NavHeader';
+import WordCardComponent from '../../components/WordCardComponent';
 
 import Api from '../../services/Api';
+import Utils from '../../services/utils';
 
 import styles from './styles';
 import { IDefineResult } from '../../interfaces/intefaces';
@@ -36,9 +38,13 @@ export default class HomeScreen extends Component<Props, any> {
     /**
      * Event Handlers
      */
-    onSearchBarChangedText = (text) => {
-        this.setState({searchingWord: text});
-        this.searchDefine();
+    onSearchBarChangedText = async (text) => {
+        if(text == '') {
+            await Utils.setStatePromise(this, {searchingWord: text, results: null});
+        } else {
+            await Utils.setStatePromise(this, {searchingWord: text});
+            this.searchDefine();
+        }
     }
 
     /**
@@ -46,7 +52,7 @@ export default class HomeScreen extends Component<Props, any> {
      */
     async searchDefine() {
         try {
-            const results = this.getDefine(this.state.searchingWord);
+            const results = await this.getDefine(this.state.searchingWord);
             this.setState({results: results});
         } catch(e) {
             console.log('[searchDefine] Error: ', e);
@@ -74,14 +80,14 @@ export default class HomeScreen extends Component<Props, any> {
      * Render
      */
     renderWordDefinationListItem = ({item}) => {
-        console.log('[renderWordDefinationListItem] item: ', item);
         return(
-            <View>
-                <Text>1</Text>
-            </View>
+            <WordCardComponent word={item}/>
         );
     }
 
+    renderWordDefinationListSeparator = () => {
+        return(<View style={styles.resultItemSeparator}/>);
+    }
 
     renderDefination = () => {
         if(!this.state.results) {
@@ -95,6 +101,8 @@ export default class HomeScreen extends Component<Props, any> {
                 <FlatList
                     data={this.state.results.list}
                     renderItem={this.renderWordDefinationListItem}
+                    ItemSeparatorComponent={this.renderWordDefinationListSeparator}
+                    keyExtractor={(item, index) => item.defid + "_" + index}
                 />
             );
         }
@@ -105,7 +113,7 @@ export default class HomeScreen extends Component<Props, any> {
             <View style={styles.container}>
                 {/* Header */}
                 <NavHeader
-                    centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+                    centerComponent={{ text: 'MY DICTIONARY', style: { color: '#fff' } }}
                 />
 
                 {/* Search Bar */}

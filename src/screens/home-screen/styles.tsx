@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+import { margin } from '../../themes/BaseStyles';
 export default StyleSheet.create({
     container: {
         flex: 1,
@@ -18,5 +18,12 @@ export default StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    resultItemSeparator: {
+        height: 1,
+        marginHorizontal: margin.md,
+        borderBottomWidth: 1,
+        borderBottomColor: '#000',
+        marginTop: margin.md,
     }
 });
