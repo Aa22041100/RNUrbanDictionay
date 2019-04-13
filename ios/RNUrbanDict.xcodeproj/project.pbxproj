@@ -58,7 +58,7 @@
 		9C65CC65CD474AD9983A3D2C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D593D6C56F074313AFCD4B53 /* Octicons.ttf */; };
 		A9CA87EB769647A3B3749181 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F826842F6EF4A79AB60C74F /* SimpleLineIcons.ttf */; };
 		3EC7101CBA7F46E99A59CAE4 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE5020FC84152AF3BEEB1 /* Zocial.ttf */; };
-		2E9C2CD63D8C4F2C8CFA8B45 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D840C6DEA771496990A23780 /* libRNSound.a */; };
+		64CB761B57D3482C90BDAEC4 /* libRNSoundPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D457BDCE34A45B5622878 /* libRNSoundPlayer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,8 +387,8 @@
 		D593D6C56F074313AFCD4B53 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3F826842F6EF4A79AB60C74F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		4F4BE5020FC84152AF3BEEB1 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A5CF306B4C4041AC83476C08 /* RNSound.xcodeproj */ = {isa = PBXFileReference; name = "RNSound.xcodeproj"; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		D840C6DEA771496990A23780 /* libRNSound.a */ = {isa = PBXFileReference; name = "libRNSound.a"; path = "libRNSound.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		2D33095F2F654D08A6A7D42C /* RNSoundPlayer.xcodeproj */ = {isa = PBXFileReference; name = "RNSoundPlayer.xcodeproj"; path = "../node_modules/react-native-sound-player/ios/RNSoundPlayer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		EA6D457BDCE34A45B5622878 /* libRNSoundPlayer.a */ = {isa = PBXFileReference; name = "libRNSoundPlayer.a"; path = "libRNSoundPlayer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,7 +419,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				6BF6720531494E979183C6B0 /* libRNGestureHandler.a in Frameworks */,
 				3F0D80D9612E4F3E89DB8FBA /* libRNVectorIcons.a in Frameworks */,
-				2E9C2CD63D8C4F2C8CFA8B45 /* libRNSound.a in Frameworks */,
+				64CB761B57D3482C90BDAEC4 /* libRNSoundPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +613,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				325A81548B454817977186C6 /* RNGestureHandler.xcodeproj */,
 				1945580BA2E24A8885E87D9C /* RNVectorIcons.xcodeproj */,
-				A5CF306B4C4041AC83476C08 /* RNSound.xcodeproj */,
+				2D33095F2F654D08A6A7D42C /* RNSoundPlayer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1281,16 +1281,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Debug;
@@ -1313,16 +1309,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Release;
@@ -1347,7 +1339,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Debug;
@@ -1371,7 +1363,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Release;
@@ -1402,16 +1394,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Debug;
@@ -1442,16 +1430,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Release;
@@ -1481,16 +1465,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Debug;
@@ -1520,16 +1500,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-sound\RNSound",
+					"$(SRCROOT)\..\node_modules\react-native-sound-player\ios",
 				);
 			};
 			name = Release;
